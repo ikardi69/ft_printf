@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 04:10:09 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/23 20:12:56 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/24 02:57:17 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	ft_putnbr(int n)
 	{
 		nbr *= -1;
 		size += ft_putchar('-');
-		ft_putnbr(nbr);
+		size += ft_putnbr(nbr);
 	}
-	if (nbr > 9)
+	else if (nbr > 9)
 	{
-		ft_putnbr(nbr / 10);
-		ft_putnbr(nbr % 10);
+		size += ft_putnbr(nbr / 10);
+		size += ft_putnbr(nbr % 10);
 	}
 	else
 		size += ft_putchar((nbr + '0'));

@@ -6,38 +6,37 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:38:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/23 03:32:02 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/24 02:48:22 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+static int	print_hex(unsigned long long num, char *hexa)
+{
+	int len;
+        
+	 if (num == 0)
+        return (0);
+            
+    len = print_hex(num / 16, hexa);
+    return (len + write(1, &hexa[num % 16], 1));
+}
+
 int	ft_printf_ptr_adress(void	*ptr)
 {
 	unsigned long long	value;
 	char				*hexa;
-	char				*result;
-	int					i;
+	int					counter;
 
+	if (!ptr)
+		return (write (1, "0", 1));
 	value = (unsigned long long)ptr;
-	result = (char *)malloc(20);
-	if (!result)
-		return (0);
 	hexa = "0123456789abcdef";
-	i = 0;
-	while (value > 0)
-	{
-		result[i] = hexa[value % 16];
-		value /= 16;
-		i++;
-	}
-	result[i] = '\0';
-	write(1, "0x", 2);
-	while (--i >= 0)
-	{
-		write(1, &result[i], 1);
-		i--;
-	}
-	free(result);
-	return ((ft_strlen(result)+2));
+    counter = write(1, "0x", 2);
+	if (value == 0)
+		counter += write(1, "0", 1);
+	else
+		counter += print_hex(value, hexa);
+	return (counter);
 }

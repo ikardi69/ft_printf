@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/23 20:41:50 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/24 02:51:35 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ static int	format_handler(va_list args, const char s)
 		size += ft_putstr(va_arg(args, char *));
 	else if (s == 'p')
 		size += ft_printf_ptr_adress(va_arg(args, void *));
-	else if (s == 'd')
+	else if (s == 'd' || s == 'i')
 		size += ft_putnbr(va_arg(args, int));
+	else if (s == 'u')
+		size += ft_put_unsigned(va_arg(args, unsigned int));
 	return (size);
 }
 
@@ -43,11 +45,11 @@ int	ft_printf(const char *s, ...)
 		{
 			i++;
 			size += format_handler(args, s[i]);
+			i++;
 		}
-		else
-			ft_putchar(s[i]);
+		size += ft_putchar(s[i]);
 		i++;
 	}
 	va_end(args);
-	return (size + i);
+	return (size);
 }

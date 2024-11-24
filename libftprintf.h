@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/23 20:30:09 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/24 02:50:24 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	ft_putstr(char *s);
 int	ft_printf_ptr_adress(void	*ptr);
 int	ft_putnbr(int n);
 int	ft_strlen(const char *s);
+int	ft_put_unsigned(unsigned int n);
 
 #endif
