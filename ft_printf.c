@@ -6,13 +6,13 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/24 02:51:35 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/24 20:51:09 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int	format_handler(va_list args, const char s)
+static int	format_handler(va_list args, const char s, int *i)
 {
 	int	size;
 
@@ -27,6 +27,8 @@ static int	format_handler(va_list args, const char s)
 		size += ft_putnbr(va_arg(args, int));
 	else if (s == 'u')
 		size += ft_put_unsigned(va_arg(args, unsigned int));
+	else
+		i = i - 2;
 	return (size);
 }
 
@@ -35,6 +37,7 @@ int	ft_printf(const char *s, ...)
 	int	i;
 	int	size;
 	va_list	args;
+	int track;
 
 	va_start(args, s);
 	i = 0;
@@ -44,8 +47,10 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			i++;
-			size += format_handler(args, s[i]);
-			i++;
+			track = size;
+			size += format_handler(args, s[i], &i);
+			if (track < size)
+				i++;
 		}
 		size += ft_putchar(s[i]);
 		i++;

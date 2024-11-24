@@ -14,6 +14,7 @@ int main()
 	// char *str = "hher";
 	// ft_printf("%p\n", NULL);
 	// printf("%p\n", NULL);
-	printf("size is = %d\n", ft_printf("%d\n", -42));
-	printf("printf size is = %d\n", printf("%d\n", -42));
+	// printf("size is = %d\n", ft_printf("%d\n", -42));
+	// printf("printf size is = %d\n", printf("%d\n", -42));
+	printf ("%key\n");
 }
