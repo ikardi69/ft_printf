@@ -3,7 +3,7 @@
 
 int main()
 {
-	//char *str = "printf = hell";
+	char *str = "printf = hell";
 	// char *str2 = "ft_printf = hell";
 	// int print = printf("%s\n", NULL);
 	// int ftprint = ft_printf("%c\n", NULL);
@@ -16,5 +16,9 @@ int main()
 	// printf("%p\n", NULL);
 	// printf("size is = %d\n", ft_printf("%d\n", -42));
 	// printf("printf size is = %d\n", printf("%d\n", -42));
-	printf ("%key\n");
+	//ft_printf ("%s", str);
+	//unsigned int i = 6;
+	ft_printf("ft %c\n", 'q');
+	printf("pf %c\n", 'q');
+	return (0);
 }

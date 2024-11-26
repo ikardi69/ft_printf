@@ -1,42 +1,29 @@
-# Project name
-NAME = libftprintf.a
+# Variables
+NAME := libftprintf.a
+SRCS := ft_print_adress.c ft_put_unsigned.c ft_putchar.c ft_putnbr_hex_lower.c \
+        ft_putnbr_hex_upper.c ft_putnbr.c ft_putstr.c
+OBJS := $(SRCS:.c=.o)
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
 
-# Compiler and flags
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-
-# Source and object files
-SRCS = ft_printf.c ft_printf_utils.c
-OBJS = $(SRCS:.c=.o)
-
-# Archive command
-AR = ar rcs
-
-# Default rule
+# Build the library
 all: $(NAME)
 
-# Create the library
 $(NAME): $(OBJS)
-	@$(AR) $(NAME) $(OBJS)
-	@echo "$(GREEN)$(NAME) created successfully!$(RESET)"
+	ar rcs $(NAME) $(OBJS)  # Use object files to create the library
 
-# Compile source files
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiled: $<"
+%.o: %.c libftprintf.h
+	$(CC) $(CFLAGS) -c $< -o $@  # Compile source files into object files
 
-# Clean object files
+# Clean up object files
 clean:
-	@rm -f $(OBJS)
-	@echo "$(RED)Object files removed!$(RESET)"
+	rm -f $(OBJS)
 
-# Clean everything
+# Clean up all generated files
 fclean: clean
-	@rm -f $(NAME)
-	@echo "$(RED)$(NAME) removed!$(RESET)"
+	rm -f $(NAME)
 
 # Rebuild everything
 re: fclean all
 
-# Phony rules
 .PHONY: all clean fclean re

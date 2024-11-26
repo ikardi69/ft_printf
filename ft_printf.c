@@ -6,13 +6,13 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/24 20:51:09 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/26 05:11:10 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int	format_handler(va_list args, const char s, int *i)
+static int	format_handler(va_list args, const char s)
 {
 	int	size;
 
@@ -27,8 +27,13 @@ static int	format_handler(va_list args, const char s, int *i)
 		size += ft_putnbr(va_arg(args, int));
 	else if (s == 'u')
 		size += ft_put_unsigned(va_arg(args, unsigned int));
-	else
-		i = i - 2;
+	else if (s == 'x')
+		size += ft_putnbr_hex_low(va_arg(args, unsigned int));
+	else if (s == 'X')
+		size += ft_putnbr_hex_up(va_arg(args, unsigned int));
+	else if (s == '%')
+		size += write(1, "%", 1);
+	else if (s == '-')
 	return (size);
 }
 
@@ -48,12 +53,12 @@ int	ft_printf(const char *s, ...)
 		{
 			i++;
 			track = size;
-			size += format_handler(args, s[i], &i);
+			size += format_handler(args, s[i]);
 			if (track < size)
 				i++;
 		}
-		size += ft_putchar(s[i]);
-		i++;
+		else
+			size += ft_putchar(s[i++]);
 	}
 	va_end(args);
 	return (size);

@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_hex_upper.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 17:45:00 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/23 00:46:33 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/11/25 22:00:01 by mteffahi          #+#    #+#             */
+/*   Updated: 2024/11/26 04:59:12 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_strlen(const char *s)
+int	ft_putnbr_hex_up(unsigned int nbr)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	char 	*hex;
+	int		size;
+	
+	hex = "0123456789ABCDEF";
+	size = 0;
+	if (nbr == 0)
+		return (write(1, "0", 1));
+    if (nbr / 16 != 0)
+        size = ft_putnbr_hex_up(nbr / 16);
+    else
+        size = 0;
+    size += write(1, &hex[nbr % 16], 1);
+	return (size);
 }
