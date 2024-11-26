@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/26 22:29:43 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/27 00:24:22 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_put_unsigned(unsigned int n);
 int	ft_putnbr_hex_low(unsigned int nbr);
 int	ft_putnbr_hex_up(unsigned int);
 int	format_handler(va_list args, const char s);
-int	ft_point_handle(va_list args, const char *s, int *i);
+int	ft_precision_handle(va_list args, const char *s, int *i, int precision);
 int	ft_atoi(const char *str)
 
 #endif
