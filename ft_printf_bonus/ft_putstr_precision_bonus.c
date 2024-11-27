@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 03:39:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/27 03:41:00 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:51:52 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 
 int	ft_putstr_precision(const char *s, int precision)
 {
-	int	i;
+	int		i;
+	char	*n;
 
 	i = 0;
+	if (!s)
+	{
+		n = "(null)";
+		while (n[i] != '\0' && i < precision)
+		{
+			write(1, &n[i], 1);
+			i++;
+		}
+		return (i);
+	}
 	while (s[i] != '\0' && i < precision)
 	{
 		write(1, &s[i], 1);

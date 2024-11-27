@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/27 03:41:11 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:54:49 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	ft_nbr_size(int nbr);
 int	ft_skip(const char *s);
 int	ft_atoi(const char *str);
 int	ft_putstr_precision(const char *s, int precision);
+int	ft_dot(va_list args, const char *s);
 
 #endif
