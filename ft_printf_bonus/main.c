@@ -1,5 +1,5 @@
 #include <libc.h>
-#include "libftprintf.h"
+#include "libftprintf_bonus.h"
 
 int main()
 {
@@ -18,7 +18,11 @@ int main()
 	// printf("printf size is = %d\n", printf("%d\n", -42));
 	//ft_printf ("%s", str);
 	//unsigned int i = 6;
-	ft_printf("ft %c\n", 'q');
-	printf("pf %c\n", 'q');
+	/*
+	printf("ft size = %d\n", ft_printf("ft %.5d\n", 12345678));
+	printf("pf size = %d\n", printf("pf %.5d\n", 12345678));
+	*/
+	printf("ft size = %d\n", ft_printf("ft %.16s\n", "hello world"));
+	printf("pf size = %d\n", printf("pf %.16s\n", "hello world"));
 	return (0);
 }

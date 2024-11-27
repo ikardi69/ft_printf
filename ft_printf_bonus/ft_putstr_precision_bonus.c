@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_hex_lower_bonus.c                        :+:      :+:    :+:   */
+/*   ft_putstr_precision_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 01:14:44 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/27 02:40:09 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/11/27 03:39:18 by mteffahi          #+#    #+#             */
+/*   Updated: 2024/11/27 03:41:00 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf_bonus.h"
 
-int	ft_putnbr_hex_low(unsigned int nbr)
+int	ft_putstr_precision(const char *s, int precision)
 {
-	char 	*hex;
-	int		size;
-	
-	hex = "0123456789abcdef";
-	size = 0;
-	if (nbr == 0)
-		return (write(1, "0", 1));
-    if (nbr / 16 != 0)
-        size = ft_putnbr_hex_low(nbr / 16);
-    else
-        size = 0;
-    size += write(1, &hex[nbr % 16], 1);
-	return (size);
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0' && i < precision)
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }
