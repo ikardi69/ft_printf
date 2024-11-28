@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 00:20:32 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/28 01:25:34 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/28 05:05:34 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	ft_putstr_negative(va_list args, int precision)
 	return (size);
 }
 
-int	ft_negative_handle(va_list args, const char *s)
+int	 ft_negative_handle(va_list args, const char *s)
 {
 	int	precision;
 	int	i;

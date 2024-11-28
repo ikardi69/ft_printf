@@ -22,8 +22,10 @@ int main()
 	printf("ft size = %d\n", ft_printf("ft %.5d\n", 12345678));
 	printf("pf size = %d\n", printf("pf %.5d\n", 12345678));
 	*/
-	printf("ft size = %d\n", ft_printf("%-5s\n", "hello"));
-	printf("pf size = %d\n", printf("%-5s\n", "hello"));
+	// printf("ft size = %d\n", ft_printf("%-5s\n", "hello"));
+	// printf("pf size = %d\n", printf("%-5s\n", "hello"));
+	printf("ft size = %d\n", ft_printf("%02d\n", 1234));
+	printf("pf size = %d\n", printf("%02d\n", 1234));
 	//printf("%.2s\n", NULL);
 	return (0);
 }
