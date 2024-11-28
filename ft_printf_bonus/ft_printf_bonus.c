@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/27 03:25:40 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/11/28 00:18:34 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			i++;
-			if (s[i] == '.')
+			if (s[i] == '.' || s[i] == '-')
 			{
 				size += ft_bonus_format_handler(args, s+i);
 				i += ft_skip(s + (i + 1)) + 1;
