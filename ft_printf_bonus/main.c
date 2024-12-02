@@ -3,7 +3,7 @@
 
 int main()
 {
-	char *str = "printf = hell";
+	//char *str = "printf = hell";
 	// char *str2 = "ft_printf = hell";
 	// int print = printf("%s\n", NULL);
 	// int ftprint = ft_printf("%c\n", NULL);
@@ -14,22 +14,24 @@ int main()
 	// char *str = "hher";
 	// ft_printf("%p\n", NULL);
 	// printf("%p\n", NULL);
-	// printf("size is = %d\n", ft_printf("%d\n", -42));
+	//printf("size is = %d\n", ft_printf("%d\n", -42));
 	// printf("printf size is = %d\n", printf("%d\n", -42));
 	//ft_printf ("%s", str);
 	//unsigned int i = 6;
-	/*
-	printf("ft size = %d\n", ft_printf("ft %.5d\n", 12345678));
-	printf("pf size = %d\n", printf("pf %.5d\n", 12345678));
-	*/
+
+	//printf("ft size = %d\n", ft_printf("ft %.5d\n", -12));
+	//printf("pf size = %d\n", printf("pf %.5d\n", -12));
 	// printf("ft size = %d\n", ft_printf("%-5s\n", "hello"));
 	// printf("pf size = %d\n", printf("%-5s\n", "hello"));
 	// printf("ft size = %d\n", ft_printf("%02d\n", 1234));
 	// printf("pf size = %d\n", printf("%02d\n", 1234));
 	// printf("ft size = %d\n", ft_printf("%01X\n", 0x1A));
 	// printf("pf size = %d\n", printf("%01X\n", 0x1A));
-	printf("ft size = %d\n", ft_printf("%05u\n", 42));
-	printf("pf size = %d\n", printf("%05u\n", 42));
+	printf("ft size = %d\n", ft_printf("%10s\n", "hi"));
+	printf("pf size = %d\n", printf("%10s\n", "hi"));
+	// printf("ft size = %d\n", ft_printf("%05u\n", 42));
+	// printf("pf size = %d\n", printf("%05u\n", 42));
 	//printf("%.2s\n", NULL);
+	
 	return (0);
 }

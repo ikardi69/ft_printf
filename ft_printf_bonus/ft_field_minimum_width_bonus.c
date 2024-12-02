@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_hex_upper.c                              :+:      :+:    :+:   */
+/*   ft_field_minimum_width_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 22:00:01 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/02 10:57:18 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/12/02 14:29:45 by mteffahi          #+#    #+#             */
+/*   Updated: 2024/12/02 15:38:16 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libftprintf_bonus.h"
 
-int	ft_putnbr_hex_up(unsigned int nbr)
+static int	padding(int w, int m)
 {
-	char 	*hex;
-	int		size;
-	
-	hex = "0123456789ABCDEF";
+	int	i;
+
+	i = 0;
+	while (i < w)
+		i += write(1, " ", 1);
+	return (i);
+}
+// type problem for padding
+int	ft_field_minimum_width(va_list args, const char *s)
+{
+	int	width;
+	int	size;
+	int	i;
+
+	width = ft_atoi(s);
+	i = ft_skip(s);
 	size = 0;
-	if (nbr == 0)
-		return (write(1, "0", 1));
-    if (nbr / 16 != 0)
-        size = ft_putnbr_hex_up(nbr / 16);
-    else
-        size = 0;
-    size += write(1, &hex[nbr % 16], 1);
+	if (s[i] == 's')
+		
+	size += padding(width);
+	size += format_handler(args, (const char)s+i);
 	return (size);
 }

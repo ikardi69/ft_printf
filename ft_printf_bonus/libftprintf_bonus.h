@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/29 03:25:12 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:54:44 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	ft_dot(va_list args, const char *s);
 int	ft_negative_handle(va_list args, const char *s);
 int	ft_zero_padding(va_list args, const char *s);
 int	ft_hexa_size(unsigned int value);
+int	ft_field_minimum_width(va_list args, const char *s);
+int	format_handler(va_list args, const char s);
 
 #endif

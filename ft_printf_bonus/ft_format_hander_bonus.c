@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_format_hander_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/02 13:18:58 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/12/02 14:54:47 by mteffahi          #+#    #+#             */
+/*   Updated: 2024/12/02 14:55:13 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libftprintf_bonus.h"
 
-static int	format_handler(va_list args, const char s)
+int	format_handler(va_list args, const char s)
 {
 	int	size;
 
@@ -33,34 +33,5 @@ static int	format_handler(va_list args, const char s)
 		size += ft_putnbr_hex_up(va_arg(args, unsigned int));
 	else if (s == '%')
 		size += write(1, "%", 1);
-	return (size);
-}
-
-int	ft_printf(const char *s, ...)
-{
-	int	i;
-	int	size;
-	va_list	args;
-	int track;
-
-	if ((write(0,0,0))< 0 || (write(1,0,0)) < 0 || (write(2,0,0)) < 0)
-		return (-1);
-	va_start(args, s);
-	i = 0;
-	size = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == '%' && s[i + 1] != '\0')
-		{
-			i++;
-			track = size;
-			size += format_handler(args, s[i]);
-			if (track < size)
-				i++;
-		}
-		else
-			size += ft_putchar(s[i++]);
-	}
-	va_end(args);
 	return (size);
 }

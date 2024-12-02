@@ -12,29 +12,29 @@
 
 #include "libftprintf_bonus.h"
 
-static int	format_handler(va_list args, const char s)
-{
-	int	size;
+// static int	format_handler(va_list args, const char s)
+// {
+// 	int	size;
 
-	size = 0;
-	if (s == 'c')
-		size += ft_putchar(va_arg(args, int));
-	else if (s == 's')
-		size += ft_putstr(va_arg(args, char *));
-	else if (s == 'p')
-		size += ft_printf_ptr_adress(va_arg(args, void *));
-	else if (s == 'd' || s == 'i')
-		size += ft_putnbr(va_arg(args, int));
-	else if (s == 'u')
-		size += ft_put_unsigned(va_arg(args, unsigned int));
-	else if (s == 'x')
-		size += ft_putnbr_hex_low(va_arg(args, unsigned int));
-	else if (s == 'X')
-		size += ft_putnbr_hex_up(va_arg(args, unsigned int));
-	else if (s == '%')
-		size += write(1, "%", 1);
-	return (size);
-}
+// 	size = 0;
+// 	if (s == 'c')
+// 		size += ft_putchar(va_arg(args, int));
+// 	else if (s == 's')
+// 		size += ft_putstr(va_arg(args, char *));
+// 	else if (s == 'p')
+// 		size += ft_printf_ptr_adress(va_arg(args, void *));
+// 	else if (s == 'd' || s == 'i')
+// 		size += ft_putnbr(va_arg(args, int));
+// 	else if (s == 'u')
+// 		size += ft_put_unsigned(va_arg(args, unsigned int));
+// 	else if (s == 'x')
+// 		size += ft_putnbr_hex_low(va_arg(args, unsigned int));
+// 	else if (s == 'X')
+// 		size += ft_putnbr_hex_up(va_arg(args, unsigned int));
+// 	else if (s == '%')
+// 		size += write(1, "%", 1);
+// 	return (size);
+// }
 
 int	ft_printf(const char *s, ...)
 {
@@ -47,10 +47,10 @@ int	ft_printf(const char *s, ...)
 	size = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == '%')
+		if (s[i] == '%' && s[i + 1] != '\0')
 		{
 			i++;
-			if (s[i] == '.' || s[i] == '-' || s[i] == '0')
+			if (s[i] == '.' || s[i] == '-' || s[i] == '0' || (s[i] > '0' && s[i] <= '9'))
 			{
 				size += ft_bonus_format_handler(args, s+i);
 				i += ft_skip(s + (i + 1)) + 1;

@@ -3,7 +3,7 @@
 
 int main()
 {
-	char *str = "printf = hell";
+	//char *str = "printf = hell";
 	// char *str2 = "ft_printf = hell";
 	// int print = printf("%s\n", NULL);
 	// int ftprint = ft_printf("%c\n", NULL);
@@ -18,7 +18,17 @@ int main()
 	// printf("printf size is = %d\n", printf("%d\n", -42));
 	//ft_printf ("%s", str);
 	//unsigned int i = 6;
-	ft_printf("ft %c\n", 'q');
-	printf("pf %c\n", 'q');
+	// ft_printf("ft %c\n", 'q');
+	// printf("pf %c\n", 'q');
+    // Close stdout to make printf fail
+    fclose(stderr);
+	// close(1)
+
+    // Try to print something
+    int ret = ft_printf("test %d",15);
+
+    // Print the return value of printf to stderr
+    fprintf(stdout, "Return value of printf: %d\n", ret);
+
 	return (0);
 }
