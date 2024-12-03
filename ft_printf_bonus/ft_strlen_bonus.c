@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbr_size_bonus.c                                :+:      :+:    :+:   */
+/*   ft_strlen_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 02:57:19 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 10:47:52 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/12/03 10:21:06 by mteffahi          #+#    #+#             */
+/*   Updated: 2024/12/03 10:22:06 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf_bonus.h"
-
-int	ft_nbr_size(int nbr)
+int	ft_strlen(char *s)
 {
 	int	i;
 
 	i = 0;
-	if (nbr == 0)
-		return (1);
-	else if (nbr < 0)
-		i += 1;
-	while (nbr != 0)
-	{
-		nbr /= 10;
+	while (s[i] != '\0')
 		i++;
-	}
 	return (i);
 }

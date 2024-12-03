@@ -35,6 +35,26 @@
 // 		size += write(1, "%", 1);
 // 	return (size);
 // }
+/*
+static int	ft_check(va_list args, const char *s, int *i)
+{
+	int	size;
+	int	x;
+
+	size = 0;
+	//i++;
+	x = *i;
+	if (s[x] == '#' || s[x] == '.' || s[x] == '-' || s[x] == '0' || (s[x] > '0' && s[x] <= '9'))
+	{
+		size += ft_bonus_format_handler(args, s+x);
+		i += ft_skip(s + (x + 1)) + 1;
+	}
+	else
+		size += format_handler(args, s[x]);
+	//i++;
+	return (size);
+}
+*/
 
 int	ft_printf(const char *s, ...)
 {
@@ -50,7 +70,8 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%' && s[i + 1] != '\0')
 		{
 			i++;
-			if (s[i] == '.' || s[i] == '-' || s[i] == '0' || (s[i] > '0' && s[i] <= '9'))
+			// ft_check(args, s+i, &i);
+			if (s[i] == '#' || s[i] == '.' || s[i] == '-' || s[i] == '0' || (s[i] > '0' && s[i] <= '9'))
 			{
 				size += ft_bonus_format_handler(args, s+i);
 				i += ft_skip(s + (i + 1)) + 1;
