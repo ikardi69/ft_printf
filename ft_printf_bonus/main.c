@@ -27,11 +27,15 @@ int main()
 	// printf("pf size = %d\n", printf("%02d\n", 1234));
 	// printf("ft size = %d\n", ft_printf("%01X\n", 0x1A));
 	// printf("pf size = %d\n", printf("%01X\n", 0x1A));
-	printf("ft size = %d\n", ft_printf("%#X\n", 255));
-	printf("pf size = %d\n", printf("%#X\n", 255));
 	// printf("ft size = %d\n", ft_printf("%05u\n", 42));
 	// printf("pf size = %d\n", printf("%05u\n", 42));
 	//printf("%.2s\n", NULL);
+	// printf("ft size = %d\n", ft_printf("%#X\n", 255));
+	// printf("pf size = %d\n", printf("%#X\n", 255));
+	// printf("ft size = %d\n", ft_printf("% d\n", 42));
+	// printf("pf size = %d\n", printf("% d\n", 42));
+	printf("ft size = %d\n", ft_printf("% +d\n", 0));
+	printf("pf size = %d\n", printf("% +d\n", 0));
 	
 	return (0);
 }

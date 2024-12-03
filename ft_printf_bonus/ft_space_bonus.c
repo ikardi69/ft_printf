@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_space_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 04:03:59 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 14:57:23 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/12/03 12:49:42 by mteffahi          #+#    #+#             */
+/*   Updated: 2024/12/03 14:56:59 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf_bonus.h"
 
-int	ft_putstr(char *s)
+int	ft_space_handler(int nbr)
 {
-	int	i;
+	int	size;
 
-	if (!s)
-		return (write(1,"(null)", 6));
-	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	size = 0;
+	if (nbr < 0)
+		size += ft_putnbr(nbr);
+	else
+		size += (ft_putchar(' ') + ft_putnbr(nbr));
+	return (size);
 }

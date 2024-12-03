@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 11:10:15 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/03 15:32:44 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int	ft_field_minimum_width(va_list args, const char *s);
 int	format_handler(va_list args, const char s);
 int	ft_strlen(char *s);
 int	ft_hash(va_list args, const char *s);
+int	ft_space_handler(int nbr);
+int	ft_positive_sign(int nbr);
 
 #endif

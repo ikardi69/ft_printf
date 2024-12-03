@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 02:43:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 11:06:08 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/03 15:34:01 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,11 @@ int	ft_bonus_format_handler(va_list args, const char *s)
 		size += ft_field_minimum_width(args, s);
 	else if (s[size] == '#')
 		size += ft_hash(args, s+1);
+	else if (s[size] == ' ' && (s[size + 1] == 'd' || s[size + 1] == 'i'))
+		size += ft_space_handler(va_arg(args, int));
+	else if (s[size] == '+' && (s[size + 1] == 'd' || s[size + 1] == 'i'))
+		size += ft_positive_sign(va_arg(args, int));
+	else if (s[size] == ' ' && s[size + 1] == '+')
+		size += ft_positive_sign(va_arg(args, int));
 	return (size);
 }
