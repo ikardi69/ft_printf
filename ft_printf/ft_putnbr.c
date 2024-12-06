@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 04:10:09 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/02 17:53:20 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:11:43 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ int	ft_putnbr(int n)
 	long nbr;
 	int	size;
 
-	nbr = n;
 	size = 0;
+	if (n == -2147483648)
+		return (ft_putstr("-2147483648"));
+	nbr = n;
 	if (nbr < 0)
 	{
 		nbr *= -1;

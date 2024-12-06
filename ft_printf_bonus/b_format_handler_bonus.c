@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 02:43:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 15:34:01 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/06 18:09:48 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ int	ft_bonus_format_handler(va_list args, const char *s)
 	size = 0;
 	if (s[size] == '.')
 		size += ft_dot(args, s+1);
-	else if (s[size] == '-')
+	else if (s[size] == '-' && s[size + 1] == '+')
+	{
+		//size += ft_positive_sign(va_arg(args, int));
+		size += ft_negative_handle(args, s+2);
+	}
+	else if (s[size] == '-' && s[size + 1] != '+')
 		size += ft_negative_handle(args, s+1);
 	else if (s[size] == '0')
 		size += ft_zero_padding(args, s+1);

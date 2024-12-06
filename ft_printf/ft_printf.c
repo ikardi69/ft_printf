@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 09:53:41 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:05:35 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_printf(const char *s, ...)
 	int	size;
 	va_list	args;
 	int track;
+
 	if ((write(0,0,0))< 0 || (write(1,0,0)) < 0 || (write(2,0,0)) < 0)
 		return (-1);
 	va_start(args, s); // args = (va_list) &(s + 1) args = f ag
