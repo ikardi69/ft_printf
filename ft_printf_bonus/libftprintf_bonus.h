@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 15:32:44 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:09:37 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ int	ft_strlen(char *s);
 int	ft_hash(va_list args, const char *s);
 int	ft_space_handler(int nbr);
 int	ft_positive_sign(int nbr);
+int	ft_combination1(va_list args, const char *s);
+int	ft_combination2(va_list args, const char*s);
+int	ft_skip_pf(const char *s);
 
 #endif

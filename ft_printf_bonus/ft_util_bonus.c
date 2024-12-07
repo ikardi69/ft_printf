@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_field_minimum_width_bonus.c                     :+:      :+:    :+:   */
+/*   ft_util_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 14:29:45 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/07 17:20:57 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/12/07 14:12:34 by mteffahi          #+#    #+#             */
+/*   Updated: 2024/12/07 14:48:13 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,33 @@ static int	padding(int w, int m)
 		i += write(1, " ", 1);
 	return (i);
 }
-// type problem for padding
-int	ft_field_minimum_width(va_list args, const char *s)
+
+static int	ft_int_handler(int nbr, int width)
 {
-	int		width;
-	int		size;
-	int		i;
-	char	*ptr;
+	int	size;
+
+	size = 0;
+	if (nbr < 0)
+		size += (padding(width, ft_nbr_size(nbr)) + ft_putnbr(nbr));
+	else
+		size += (padding(width, (ft_nbr_size(nbr) + 1)) + ft_putchar('+') + ft_putnbr(nbr));
+	return (size);
+}
+
+int	ft_combination1(va_list args, const char *s)
+{
+	int	width;
+	int	size;
+	int	i;
+	int	tmp;
 
 	width = ft_atoi(s);
 	i = ft_skip(s);
 	size = 0;
-	if (s[i] == 'c')
-		size += (padding(width, 1) + ft_putchar(va_arg(args, int)));
-	else if (s[i] == 's')
+	if (s[i] == 'd' || s[i] == 'i')
 	{
-		ptr = va_arg(args, char *);
-		size += (padding(width, ft_strlen(ptr)) + ft_putstr(ptr));
-	}
-	else if (s[i] == 'd' || s[i] == 'i')
-	{
-		i = va_arg(args, int);
-		size += (padding(width, ft_nbr_size(i)) + ft_putnbr(i));
+		tmp = va_arg(args, int);
+		size += ft_int_handler(tmp, width);
 	}
 	return (size);
 }

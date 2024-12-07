@@ -74,7 +74,7 @@ int	ft_printf(const char *s, ...)
 			if (s[i] == '+' || s[i] == ' ' || s[i] == '#' || s[i] == '.' || s[i] == '-' || s[i] == '0' || (s[i] > '0' && s[i] <= '9'))
 			{
 				size += ft_bonus_format_handler(args, s+i);
-				i += ft_skip(s + (i + 1)) + 1;
+				i += ft_skip_pf(s + (i + 1)) + 1;
 			}
 			else
 				size += format_handler(args, s[i]);

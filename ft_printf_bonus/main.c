@@ -46,8 +46,11 @@ int main()
 	// printf("%c",p[-1]);
 	// printf("ft size = %d\n", ft_printf("String test: %s\n", "Hello World"));
 	// printf("pf size = %d\n", printf("String test: %s\n", "Hello World"));
-	printf("ft size = %d\n", ft_printf("ft %-+10d\n", 42));
-	printf("pf size = %d\n", printf("pf %-+10d\n", 42));
+    //void *ptr = (void *)42;
+	// printf("ft size = %d\n", ft_printf("ft %-10u\n", 42));
+	// printf("pf size = %d\n", printf("pf %-10u\n", 42));
+	printf("ft size = %d\n", ft_printf("ft %#10X\n", 42));
+	printf("pf size = %d\n", printf("pf %#10X\n", 42));
 	return (0);
 }
 
