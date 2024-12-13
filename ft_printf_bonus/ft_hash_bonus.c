@@ -19,7 +19,8 @@ int	ft_hash(va_list args, const char *s)
 
 	size = 0;
 	i = 0;
-	// if (s[i] >= '0' && s[i] <= '9')
+	if (s[i] >= '0' && s[i] <= '9')
+		size += ft_combination3(args, s);
 	if (s[i] != 'x' && s[i] != 'X')
 		size += format_handler(args, s[i]);
 	if (s[i] == 'x')

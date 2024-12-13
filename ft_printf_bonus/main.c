@@ -1,5 +1,5 @@
 
-#include <libc.h>
+//#include <libc.h>
 #include "libftprintf_bonus.h"
 
 int main()
@@ -49,8 +49,10 @@ int main()
     //void *ptr = (void *)42;
 	// printf("ft size = %d\n", ft_printf("ft %-10u\n", 42));
 	// printf("pf size = %d\n", printf("pf %-10u\n", 42));
-	printf("ft size = %d\n", ft_printf("ft %#10X\n", 42));
-	printf("pf size = %d\n", printf("pf %#10X\n", 42));
+	// printf("ft size = %d\n", ft_printf("pf %-#10X\n", 42));
+	// printf("pf size = %d\n", printf("pf %-#10X\n", 42));
+   	printf("ft size = %d\n", ft_printf("ft %-10%\n"));
+	printf("pf size = %d\n", printf("pf %-10%\n"));
 	return (0);
 }
 

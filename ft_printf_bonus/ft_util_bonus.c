@@ -51,3 +51,20 @@ int	ft_combination1(va_list args, const char *s)
 	}
 	return (size);
 }
+
+int	ft_combination3(va_list args, const char *s)
+{
+	int				width;
+	int				size;
+	unsigned int	tmp;
+
+	size = 0;
+	width = (ft_atoi(s) - 2);
+	tmp = va_arg(args, unsigned int);
+	size = ft_skip(s);
+	if (s[size] == 'x')
+		size = padding(width, ft_hexa_size(tmp)) + ft_putstr("0x") + ft_putnbr_hex_low(tmp);
+	else if (s[size] == 'X')
+		size = padding(width, ft_hexa_size(tmp)) + ft_putstr("0X") + ft_putnbr_hex_up(tmp);
+	return (size);
+}

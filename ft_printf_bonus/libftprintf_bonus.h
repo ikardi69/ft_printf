@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+//# include <stdio.h>
 # include <libc.h>
 
 # define LL_MAX 9223372036854775807LL
@@ -45,5 +46,6 @@ int	ft_positive_sign(int nbr);
 int	ft_combination1(va_list args, const char *s);
 int	ft_combination2(va_list args, const char*s);
 int	ft_skip_pf(const char *s);
+int	ft_combination3(va_list args, const char *s);
 
 #endif

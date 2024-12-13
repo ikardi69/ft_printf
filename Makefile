@@ -3,7 +3,7 @@ NAME := libftprintf.a
 SRCS := ft_print_adress.c ft_put_unsigned.c ft_putchar.c ft_putnbr_hex_lower.c \
         ft_putnbr_hex_upper.c ft_putnbr.c ft_putstr.c
 OBJS := $(SRCS:.c=.o)
-CC := gcc
+CC := cc
 CFLAGS := -Wall -Wextra -Werror
 
 # Build the library
