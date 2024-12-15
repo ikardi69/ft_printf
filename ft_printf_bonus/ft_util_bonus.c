@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:12:34 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/07 14:48:13 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/15 20:49:21 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static int	ft_int_handler(int nbr, int width)
 	if (nbr < 0)
 		size += (padding(width, ft_nbr_size(nbr)) + ft_putnbr(nbr));
 	else
-		size += (padding(width, (ft_nbr_size(nbr) + 1)) + ft_putchar('+') + ft_putnbr(nbr));
+		size += (padding(width, (ft_nbr_size(nbr) + 1))
+				+ ft_putchar('+') + ft_putnbr(nbr));
 	return (size);
 }
 
@@ -63,8 +64,10 @@ int	ft_combination3(va_list args, const char *s)
 	tmp = va_arg(args, unsigned int);
 	size = ft_skip(s);
 	if (s[size] == 'x')
-		size = padding(width, ft_hexa_size(tmp)) + ft_putstr("0x") + ft_putnbr_hex_low(tmp);
+		size = padding(width, ft_hexa_size(tmp))
+			+ ft_putstr("0x") + ft_putnbr_hex_low(tmp);
 	else if (s[size] == 'X')
-		size = padding(width, ft_hexa_size(tmp)) + ft_putstr("0X") + ft_putnbr_hex_up(tmp);
+		size = padding(width, ft_hexa_size(tmp))
+			+ ft_putstr("0X") + ft_putnbr_hex_up(tmp);
 	return (size);
 }

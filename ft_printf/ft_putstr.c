@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 04:03:59 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/11/26 04:53:03 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/15 21:13:46 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putstr(char *s)
 	int	i;
 
 	if (!s)
-		return (write(1,"(null)", 6));
+		return (write(1, "(null)", 6));
 	i = 0;
 	while (s[i])
 	{

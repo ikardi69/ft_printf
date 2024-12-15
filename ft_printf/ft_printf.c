@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/03 17:05:35 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/15 21:09:35 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	format_handler(va_list args, const char s)
 
 	size = 0;
 	if (s == 'c')
-		size += ft_putchar(va_arg(args, int)); // args : read args 
+		size += ft_putchar(va_arg(args, int));
 	else if (s == 's')
 		size += ft_putstr(va_arg(args, char *));
 	else if (s == 'p')
@@ -38,14 +38,14 @@ static int	format_handler(va_list args, const char s)
 
 int	ft_printf(const char *s, ...)
 {
-	int	i;
-	int	size;
+	int		i;
+	int		size;
 	va_list	args;
-	int track;
+	int		track;
 
-	if ((write(0,0,0))< 0 || (write(1,0,0)) < 0 || (write(2,0,0)) < 0)
+	if ((write(0, 0, 0)) < 0 || (write(1, 0, 0)) < 0 || (write(2, 0, 0)) < 0)
 		return (-1);
-	va_start(args, s); // args = (va_list) &(s + 1) args = f ag
+	va_start(args, s);
 	i = 0;
 	size = 0;
 	while (s[i] != '\0')
