@@ -59,14 +59,12 @@ static int	ft_get_size(const char *s, va_list args)
 
 int	ft_printf(const char *s, ...)
 {
-	int		i;
 	int		size;
 	va_list	args;
 
 	if ((write(0, 0, 0)) < 0 || (write(1, 0, 0)) < 0 || (write(2, 0, 0)) < 0)
 		return (-1);
 	va_start(args, s);
-	i = 0;
 	size = ft_get_size(s, args);
 	va_end(args);
 	return (size);

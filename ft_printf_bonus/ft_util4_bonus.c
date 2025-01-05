@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 20:30:56 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 21:28:26 by mteffahi         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:25:16 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_putnbr_hex_up(unsigned int nbr)
 	return (size);
 }
 
-static int	ft_check_tmp(int *tmp)
+int	ft_check_tmp(int *tmp)
 {
 	int	flag;
 
@@ -72,18 +72,11 @@ int	ft_dot(va_list args, const char *s)
 	i = ft_skip(s);
 	size = 0;
 	if (s[i] == 'd' || s[i] == 'i')
-	{
-		tmp = va_arg(args, int);
-		flag = ft_check_tmp(&tmp);
-		while (size < (precision - ft_nbr_size(tmp))
-			&& ft_nbr_size(tmp) < precision)
-			size += write(1, "0", 1);
-		size += ft_putnbr(tmp);
-		if (flag == 1)
-			size++;
-	}
+		size += ft_int_precision(args, flag, precision);
 	else if (s[i] == 's')
 		size += ft_putstr_precision(va_arg(args, char *), precision);
+	else if (s[i] == 'u')
+		size += ft_unsigned_precision(args, flag, precision);
 	return (size);
 }
 

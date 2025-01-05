@@ -33,7 +33,7 @@ void	ft_handle_integer(const char *s, va_list args, int *size,
 	if (s[i] == 'd' || s[i] == 'i')
 	{
 		*tmp = va_arg(args, int);
-		if (s[*size] == '+' && tmp > 0)
+		if (s[*size] == '+' && *tmp > 0)
 		{
 			*size += 1;
 			precision -= ft_putchar('+');

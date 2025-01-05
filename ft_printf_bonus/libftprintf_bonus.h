@@ -15,8 +15,8 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-//# include <stdio.h>
-# include <libc.h>
+# include <stdio.h>
+//# include <libc.h>
 
 # define LL_MAX 9223372036854775807LL
 
@@ -55,5 +55,8 @@ void	ft_handle_ptr(const char *s, va_list args, int *size,
 int		ft_put(int tmp, int precision);
 int		ft_put_char_precision(va_list args, int precision);
 int		ft_putstr_negative(va_list args, int precision);
+int		ft_check_tmp(int *tmp);
+int		ft_unsigned_precision(va_list args, int flag, int precision);
+int		ft_int_precision(va_list args, int flag, int precision);
 
 #endif

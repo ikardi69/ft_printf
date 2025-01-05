@@ -42,8 +42,25 @@ int	ft_bonus_format_handler(va_list args, const char *s)
 		size += ft_positive_sign(va_arg(args, int));
 	else if (s[size] == ' ' && s[size + 1] == '+')
 		size += ft_positive_sign(va_arg(args, int));
-	else if (s[size] == '+' && (s[size + 1] >= '0' && s[size + 1] <= '9')
-		|| s[size + 1] == ' ')
+	else if (s[size] == '+' && ((s[size + 1] >= '0' && s[size + 1] <= '9')
+			|| s[size + 1] == ' '))
 		size += ft_combination1(args, s + 1);
+	return (size);
+}
+
+int	ft_int_precision(va_list args, int flag, int precision)
+{
+	int	size;
+	int	tmp;
+
+	size = 0;
+	tmp = va_arg(args, int);
+	flag = ft_check_tmp(&tmp);
+	while (size < (precision - ft_nbr_size(tmp))
+		&& ft_nbr_size(tmp) < precision)
+		size += write(1, "0", 1);
+	size += ft_putnbr(tmp);
+	if (flag == 1)
+		size++;
 	return (size);
 }
