@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:12:34 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 20:49:21 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:24:55 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,18 @@ int	ft_combination3(va_list args, const char *s)
 		size = padding(width, ft_hexa_size(tmp))
 			+ ft_putstr("0X") + ft_putnbr_hex_up(tmp);
 	return (size);
+}
+int	ft_nbr_size_t(size_t nbr)
+{
+	int	i;
+
+	i = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr != 0)
+	{
+		nbr /= 10;
+		i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 04:48:57 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 20:54:51 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:12:54 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,20 @@ int	ft_zero_padding(va_list args, const char *s)
 		size += ft_hexa_zpadding(va_arg(args, unsigned int), precision, s[i]);
 	else if (s[i] == 'u')
 		size += ft_negative_zpadding_u(va_arg(args, unsigned int), precision);
+	return (size);
+}
+
+int	ft_hex_low_dot(unsigned int nbr, int precision)
+{
+	int	size;
+	int	len;
+
+	len = ft_hexa_size(nbr);
+	size = 0;
+	while (size < (precision - len))
+	{
+		size += write(1, "0", 1);
+	}
+	size += ft_putnbr_hex_low(nbr);
 	return (size);
 }

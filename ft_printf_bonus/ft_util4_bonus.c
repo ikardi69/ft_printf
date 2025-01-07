@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 20:30:56 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/27 18:25:16 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:22:51 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,6 @@ int	ft_putnbr_hex_up(unsigned int nbr)
 	return (size);
 }
 
-int	ft_check_tmp(int *tmp)
-{
-	int	flag;
-
-	flag = 0;
-	if (*tmp < 0)
-	{
-		write(1, "-", 1);
-		*tmp *= -1;
-		flag = 1;
-	}
-	return (flag);
-}
-
 int	ft_dot(va_list args, const char *s)
 {
 	int	precision;
@@ -76,7 +62,13 @@ int	ft_dot(va_list args, const char *s)
 	else if (s[i] == 's')
 		size += ft_putstr_precision(va_arg(args, char *), precision);
 	else if (s[i] == 'u')
-		size += ft_unsigned_precision(args, flag, precision);
+		size += ft_unsigned_precision(args, precision);
+	else if (s[i] == 'x')
+		size += ft_hex_low_dot(va_arg(args, unsigned int), precision);
+	else if (s[i] == 'X')
+		size += ft_hex_up_dot(va_arg(args, unsigned int), precision);
+	else if (s[i] == 'z' && s[i + 1] == 'u' && i++)
+		size += 
 	return (size);
 }
 
@@ -90,4 +82,19 @@ int	ft_putstr(char *s)
 	while (s[i])
 		i++;
 	return (write(1, s, i));
+}
+
+int	ft_nbr_unsigned_size(unsigned int nbr)
+{
+	int	i;
+
+	i = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr != 0)
+	{
+		nbr /= 10;
+		i++;
+	}
+	return (i);
 }

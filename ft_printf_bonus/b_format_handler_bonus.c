@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 02:43:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 20:47:22 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:22:36 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,47 @@ int	ft_int_precision(va_list args, int flag, int precision)
 
 	size = 0;
 	tmp = va_arg(args, int);
-	flag = ft_check_tmp(&tmp);
+	flag = ft_check_tmp_int(&tmp);
 	while (size < (precision - ft_nbr_size(tmp))
 		&& ft_nbr_size(tmp) < precision)
 		size += write(1, "0", 1);
 	size += ft_putnbr(tmp);
 	if (flag == 1)
 		size++;
+	return (size);
+}
+
+int	ft_check_tmp_int(int *tmp)
+{
+	int	flag;
+
+	flag = 0;
+	if (*tmp < 0)
+	{
+		write(1, "-", 1);
+		*tmp *= -1;
+		flag = 1;
+	}
+	return (flag);
+}
+
+int		ft_put_unsigned_nbr(unsigned int n)
+{
+	int		size;
+
+	size = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		size += ft_putchar('-');
+		size += ft_putnbr(n);
+	}
+	else if (n > 9)
+	{
+		size += ft_putnbr(n / 10);
+		size += ft_putnbr(n % 10);
+	}
+	else
+		size += ft_putchar((n + '0'));
 	return (size);
 }

@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 21:01:11 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 20:48:02 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,12 @@ void	ft_handle_ptr(const char *s, va_list args, int *size,
 int		ft_put(int tmp, int precision);
 int		ft_put_char_precision(va_list args, int precision);
 int		ft_putstr_negative(va_list args, int precision);
-int		ft_check_tmp(int *tmp);
-int		ft_unsigned_precision(va_list args, int flag, int precision);
+int		ft_unsigned_precision(va_list args, int precision);
 int		ft_int_precision(va_list args, int flag, int precision);
+int		ft_hex_low_dot(unsigned int nbr, int precision);
+int		ft_hex_up_dot(unsigned int nbr, int precision);
+int		ft_check_tmp_int(int *tmp);
+int		ft_put_unsigned_nbr(unsigned int n);
+int		ft_nbr_unsigned_size(unsigned int nbr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 00:20:32 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 19:29:15 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:25:52 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,29 @@ int	ft_negative_handle(va_list args, const char *s)
 	return (size);
 }
 
-int	ft_unsigned_precision(va_list args, int flag, int precision)
+int	ft_unsigned_precision(va_list args, int precision)
 {
 	int				size;
 	unsigned int	tmp;
 
 	size = 0;
 	tmp = va_arg(args, unsigned int);
-	flag = ft_check_tmp(&tmp);
-	while (size < (precision - ft_nbr_size(tmp))
-		&& ft_nbr_size(tmp) < precision)
+	while (size < (precision - ft_nbr_unsigned_size(tmp))
+		&& ft_nbr_unsigned_size(tmp) < precision)
 		size += write(1, "0", 1);
-	size += ft_putnbr(tmp);
-	if (flag == 1)
-		size++;
+	size += ft_put_unsigned_nbr(tmp);
 	return (size);
+}
+
+int	ft_size_t_precision(size_t nbr, int precision)
+{
+	int		size;
+	size_t	tmp;
+
+	size = 0;
+	while (size < (precision - ft_nbr_size_t(nbr)) && ft_nbr_size_t(nbr) < precision)
+	{
+		size += write(1, "0", 1);
+	}
+	size += 
 }

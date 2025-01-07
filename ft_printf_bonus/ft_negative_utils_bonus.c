@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 19:21:24 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 19:27:52 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 21:23:44 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,19 @@ void	ft_handle_ptr(const char *s, va_list args, int *size,
 		*tmp = va_arg(args, unsigned int);
 		*size += ft_put_unsigned(*tmp) + ft_put(*tmp, precision);
 	}
+}
+
+int	ft_size_t_size(size_t nbr)
+{
+	int	size;
+
+	size = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr != 0)
+	{
+		nbr /= 10;
+		size++;
+	}
+	return (size);
 }

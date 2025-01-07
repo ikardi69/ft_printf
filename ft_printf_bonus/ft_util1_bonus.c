@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:49:54 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 20:50:25 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:15:48 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,19 @@ int	ft_skip_pf(const char *s)
 			|| s[i] == '+' || s[i] == ' ' || s[i] == '#'))
 		i++;
 	return (i);
+}
+
+int	ft_hex_up_dot(unsigned int nbr, int precision)
+{
+	int	size;
+	int	len;
+
+	len = ft_hexa_size(nbr);
+	size = 0;
+	while (size < (precision - len))
+	{
+		size += write(1, "0", 1);
+	}
+	size += ft_putnbr_hex_up(nbr);
+	return (size);
 }
