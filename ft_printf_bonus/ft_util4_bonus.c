@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 20:30:56 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/05 21:22:51 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:25:17 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,11 @@ int	ft_dot(va_list args, const char *s)
 		size += ft_hex_low_dot(va_arg(args, unsigned int), precision);
 	else if (s[i] == 'X')
 		size += ft_hex_up_dot(va_arg(args, unsigned int), precision);
-	else if (s[i] == 'z' && s[i + 1] == 'u' && i++)
-		size += 
+	else if (s[i] == 'z' && s[i + 1] == 'u')
+	{
+		i++;
+		size += ft_size_t_precision(va_arg(args, size_t), precision);
+	}
 	return (size);
 }
 

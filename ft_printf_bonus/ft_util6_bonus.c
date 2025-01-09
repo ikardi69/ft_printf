@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:36:50 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/05 18:01:43 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:34:55 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,19 @@ int	ft_strlen(char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
+}
+
+int	ft_size_t_putnbr(size_t n)
+{
+	int		size;
+
+	size = 0;
+	if (n > 9)
+	{
+		size += ft_size_t_putnbr(n / 10);
+		size += ft_size_t_putnbr(n % 10);
+	}
+	else
+		size += ft_putchar((n + '0'));
+	return (size);
 }

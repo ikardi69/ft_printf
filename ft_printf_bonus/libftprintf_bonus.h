@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/05 20:48:02 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:21:22 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-//# include <libc.h>
 
 # define LL_MAX 9223372036854775807LL
 
@@ -62,5 +61,8 @@ int		ft_hex_up_dot(unsigned int nbr, int precision);
 int		ft_check_tmp_int(int *tmp);
 int		ft_put_unsigned_nbr(unsigned int n);
 int		ft_nbr_unsigned_size(unsigned int nbr);
+int		ft_size_t_putnbr(size_t n);
+int		ft_size_t_precision(size_t nbr, int precision);
+int		ft_nbr_size_t(size_t nbr);
 
 #endif
