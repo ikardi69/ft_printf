@@ -6,11 +6,11 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:49:54 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/07 18:26:20 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:14:06 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf_bonus.h"
+#include "ft_printf.h"
 
 static int	ft_put_comb(unsigned int tmp, int precision)
 {

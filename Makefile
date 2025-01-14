@@ -1,47 +1,36 @@
-# **************************************************************************** #
-#                                   Makefile                                   #
-# **************************************************************************** #
+SRC = b_format_handler.c \
+		ft_negative_utils_bonus.c \
+		ft_util1_bonus.c  \
+		ft_util3_bonus.c  \
+		ft_util5_bonus.c  \
+		ft_util_bonus.c  \
+		ft_negative_bonus.c \
+		ft_printf.c \
+		ft_util2_bonus.c \
+		ft_util4_bonus.c \
+		ft_util6_bonus.c \
+		ft_zero_paddding_bonus.c
 
 NAME = libftprintf.a
-
-# Compiler and flags
-CC = cc
+OBJ = $(SRC:.c=.o)
+INCLUDE = ft_printf.h 
 CFLAGS = -Wall -Wextra -Werror
+CC = cc
 
-# Directories
-MANDATORY_DIR = ft_printf
-BONUS_DIR = ft_printf_bonus
+all : $(NAME)
 
-# Source files
-MANDATORY_SRCS = $(wildcard $(MANDATORY_DIR)/*.c)
-BONUS_SRCS = $(wildcard $(BONUS_DIR)/*.c)
+$(NAME) : $(OBJ)
+	ar -rc $(NAME) $(OBJ)
 
-# Object files
-MANDATORY_OBJS = $(MANDATORY_SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+%.o: %.c $(INCLUDE)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Rules
-all: $(NAME)
+clean :
+	rm -f $(OBJ)
 
-$(NAME): $(MANDATORY_OBJS)
-	ar rcs $(NAME) $(MANDATORY_OBJS)
-
-bonus: $(BONUS_OBJS)
-	ar rcs $(NAME) $(BONUS_OBJS)
-
-clean:
-	rm -f $(MANDATORY_OBJS) $(BONUS_OBJS)
-
-fclean: clean
+fclean : clean
 	rm -f $(NAME)
 
-re: fclean all
+bonus : fclean all
 
-# Include dependency files
--include $(MANDATORY_OBJS:.o=.d) $(BONUS_OBJS:.o=.d)
-
-# Pattern rule for object files with dependencies
-%.o: %.c
-	$(CC) $(CFLAGS) -MMD -c $< -o $@
-
-.PHONY: all bonus clean fclean re
+re : fclean all

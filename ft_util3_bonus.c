@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_adress.c                                  :+:      :+:    :+:   */
+/*   ft_util3_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 20:38:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2024/12/15 21:25:43 by mteffahi         ###   ########.fr       */
+/*   Created: 2024/12/15 20:27:17 by mteffahi          #+#    #+#             */
+/*   Updated: 2025/01/14 17:14:15 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	print_hex(unsigned long long num, char *hexa)
 {
@@ -38,4 +38,47 @@ int	ft_printf_ptr_adress(void	*ptr)
 	else
 		counter += print_hex(value, hexa);
 	return (counter);
+}
+
+int	ft_put_unsigned(unsigned int n)
+{
+	int	size;
+
+	size = 0;
+	if (n > 9)
+	{
+		size += ft_putnbr(n / 10);
+		size += ft_putnbr(n % 10);
+	}
+	else
+		size += ft_putchar((n + '0'));
+	return (size);
+}
+
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+int	ft_putnbr(int n)
+{
+	int		size;
+
+	size = 0;
+	if (n == -2147483648)
+		return (ft_putstr("-2147483648"));
+	if (n < 0)
+	{
+		n *= -1;
+		size += ft_putchar('-');
+		size += ft_putnbr(n);
+	}
+	else if (n > 9)
+	{
+		size += ft_putnbr(n / 10);
+		size += ft_putnbr(n % 10);
+	}
+	else
+		size += ft_putchar((n + '0'));
+	return (size);
 }

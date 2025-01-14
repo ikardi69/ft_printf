@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_format_handler_bonus.c                           :+:      :+:    :+:   */
+/*   b_format_handler.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 02:43:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/05 21:22:36 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:13:23 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf_bonus.h"
+#include "ft_printf.h"
 
 static void	ft_check_flag(int *size, const char *s, va_list args)
 {
@@ -79,21 +79,15 @@ int	ft_check_tmp_int(int *tmp)
 	return (flag);
 }
 
-int		ft_put_unsigned_nbr(unsigned int n)
+int	ft_put_unsigned_nbr(unsigned int n)
 {
 	int		size;
 
 	size = 0;
-	if (n < 0)
+	if (n > 9)
 	{
-		n *= -1;
-		size += ft_putchar('-');
-		size += ft_putnbr(n);
-	}
-	else if (n > 9)
-	{
-		size += ft_putnbr(n / 10);
-		size += ft_putnbr(n % 10);
+		size += ft_put_unsigned_nbr(n / 10);
+		size += ft_put_unsigned_nbr(n % 10);
 	}
 	else
 		size += ft_putchar((n + '0'));

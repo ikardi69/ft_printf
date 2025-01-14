@@ -6,11 +6,11 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 00:20:32 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/07 17:30:23 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:13:27 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf_bonus.h"
+#include "ft_printf.h"
 
 int	ft_put_char_precision(va_list args, int precision)
 {
@@ -69,10 +69,10 @@ int	ft_unsigned_precision(va_list args, int precision)
 int	ft_size_t_precision(size_t nbr, int precision)
 {
 	int		size;
-	size_t	tmp;
 
 	size = 0;
-	while (size < (precision - ft_nbr_size_t(nbr)) && ft_nbr_size_t(nbr) < precision)
+	while (size < (precision - ft_nbr_size_t(nbr))
+		&& (ft_nbr_size_t(nbr) < precision))
 	{
 		size += write(1, "0", 1);
 	}

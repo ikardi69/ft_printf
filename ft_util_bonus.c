@@ -6,11 +6,11 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:12:34 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/07 17:32:50 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:14:02 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf_bonus.h"
+#include "ft_printf.h"
 
 static int	padding(int w, int m)
 {
@@ -71,6 +71,7 @@ int	ft_combination3(va_list args, const char *s)
 			+ ft_putstr("0X") + ft_putnbr_hex_up(tmp);
 	return (size);
 }
+
 int	ft_nbr_size_t(size_t nbr)
 {
 	int	i;
