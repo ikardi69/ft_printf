@@ -31,6 +31,6 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 
-bonus : fclean all
+bonus : re
 
 re : fclean all
