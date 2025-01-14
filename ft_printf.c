@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 02:53:37 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:13:36 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/14 18:07:48 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_printf(const char *s, ...)
 	int		size;
 	va_list	args;
 
-	if ((write(0, 0, 0)) < 0 || (write(1, 0, 0)) < 0 || (write(2, 0, 0)) < 0)
+	if (write(1, 0, 0) == -1)
 		return (-1);
 	va_start(args, s);
 	size = ft_get_size(s, args);
