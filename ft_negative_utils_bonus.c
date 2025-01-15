@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 19:21:24 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:13:32 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:49:23 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ void	ft_handle_integer(const char *s, va_list args, int *size,
 		}
 		*size += (ft_putnbr(*tmp) + ft_put(*tmp, precision));
 	}
+	else if (s[i] == 'u')
+		*size += ft_unsigned_negative(va_arg(args, unsigned int), precision);
+	else if (s[i] == 'x')
+		*size += ft_hex_low_neg(va_arg(args, unsigned int), precision);
+	else if (s[i] == 'X')
+		*size += ft_hex_upp_neg(va_arg(args, unsigned int), precision);
 }
 
 void	ft_handle_str(const char *s, va_list args, int *size)
@@ -66,13 +72,7 @@ void	ft_handle_ptr(const char *s, va_list args, int *size,
 	if (s[i] == 'p')
 	{
 		*tmp = (unsigned long long)va_arg(args, void *);
-		*size += (ft_printf_ptr_adress((void *)*tmp)
-				+ ft_put(*tmp, (precision - 2)));
-	}
-	else if (s[i] == 'u')
-	{
-		*tmp = va_arg(args, unsigned int);
-		*size += ft_put_unsigned(*tmp) + ft_put(*tmp, precision);
+		*size += ft_put_llu(*tmp, precision);
 	}
 }
 

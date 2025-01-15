@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/mteffahi/Desktop/pf/ft_printf/ft_printf.2",
-      "program": "/home/mteffahi/Desktop/pf/ft_printf/ft_printf.2/build/Debug/outDebug",
+      "cwd": "/home/mteffahi/Desktop/pf/ft_printf",
+      "program": "/home/mteffahi/Desktop/pf/ft_printf/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

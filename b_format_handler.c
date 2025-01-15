@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 02:43:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:13:23 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:49:03 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,15 @@ int	ft_bonus_format_handler(va_list args, const char *s)
 	else if (s[size] == '+' && ((s[size + 1] >= '0' && s[size + 1] <= '9')
 			|| s[size + 1] == ' '))
 		size += ft_combination1(args, s + 1);
+	else if (s[size] == ' ' && s[size + 1] == 's')
+		size += ft_putstr(va_arg(args, char *));
 	return (size);
 }
 
 int	ft_int_precision(va_list args, int flag, int precision)
 {
-	int	size;
-	int	tmp;
+	int		size;
+	long	tmp;
 
 	size = 0;
 	tmp = va_arg(args, int);
@@ -59,13 +61,13 @@ int	ft_int_precision(va_list args, int flag, int precision)
 	while (size < (precision - ft_nbr_size(tmp))
 		&& ft_nbr_size(tmp) < precision)
 		size += write(1, "0", 1);
-	size += ft_putnbr(tmp);
+	size += ft_putnbr_always_positive(tmp);
 	if (flag == 1)
 		size++;
 	return (size);
 }
 
-int	ft_check_tmp_int(int *tmp)
+int	ft_check_tmp_int(long *tmp)
 {
 	int	flag;
 

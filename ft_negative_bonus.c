@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 00:20:32 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:13:27 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:26:20 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_negative_handle(va_list args, const char *s)
 	i = ft_skip(s);
 	size = 0;
 	if (s[size] == ' ')
-		ft_putchar(' ');
+		size += ft_putchar(' ');
 	ft_handle_integer(s, args, &size, &tmp);
 	ft_handle_str(s, args, &size);
 	ft_handle_ptr(s, args, &size, &tmp);

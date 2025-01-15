@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:13:57 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:40:42 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+#include <stdio.h>
 
 # define LL_MAX 9223372036854775807LL
 
@@ -57,11 +58,20 @@ int		ft_unsigned_precision(va_list args, int precision);
 int		ft_int_precision(va_list args, int flag, int precision);
 int		ft_hex_low_dot(unsigned int nbr, int precision);
 int		ft_hex_up_dot(unsigned int nbr, int precision);
-int		ft_check_tmp_int(int *tmp);
+int		ft_check_tmp_int(long *tmp);
 int		ft_put_unsigned_nbr(unsigned int n);
 int		ft_nbr_unsigned_size(unsigned int nbr);
 int		ft_size_t_putnbr(size_t n);
 int		ft_size_t_precision(size_t nbr, int precision);
 int		ft_nbr_size_t(size_t nbr);
+int		ft_space_p(unsigned int nbr, int width);
+int		ft_put_llu(unsigned long long tmp, int precision);
+int		ft_hexa_ptr_size(unsigned long long value);
+int		ft_unsigned_negative(unsigned int nbr, int precision);
+int		ft_hex_low_neg(unsigned int nbr, int precision);
+int		ft_hex_upp_neg(unsigned int nbr, int precision);
+int		ft_putnbr_always_positive(long n);
+int		ft_negative_zpadding_helper(int tmp);
+int		ft_hash_helper(unsigned int tmp);
 
 #endif

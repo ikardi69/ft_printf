@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 20:33:57 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:14:24 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 11:41:08 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_field_minimum_width(va_list args, const char *s)
 		i = va_arg(args, int);
 		size += (padding(width, ft_nbr_size(i)) + ft_putnbr(i));
 	}
+	else if (s[i] == 'p')
+		size += ft_space_p(va_arg(args, unsigned int), width);
 	return (size);
 }
 

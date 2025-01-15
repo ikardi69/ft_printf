@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 04:48:57 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:14:33 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:55:35 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,14 @@ static int	ft_negative_zpadding(int tmp, int precision)
 	size = 0;
 	if (tmp < 0)
 	{
-		size += ft_putchar('-');
+		ft_putchar('-');
 		while (size < (precision - ft_nbr_size(tmp))
 			&& ft_nbr_size(tmp) < precision)
 			size += write(1, "0", 1);
-		size += ft_putnbr((tmp * -1));
+		if (tmp == -2147483648)
+			size += ft_negative_zpadding_helper(tmp);
+		else
+			size += (ft_putnbr_always_positive(tmp * -1) + 1);
 	}
 	else
 	{
@@ -60,8 +63,8 @@ static int	ft_negative_zpadding_u(unsigned int tmp, int precision)
 	int	size;
 
 	size = 0;
-	while (size < (precision - ft_nbr_size(tmp))
-		&& ft_nbr_size(tmp) < precision)
+	while (size < (precision - ft_nbr_unsigned_size(tmp))
+		&& ft_nbr_unsigned_size(tmp) < precision)
 		size += write(1, "0", 1);
 	size += ft_put_unsigned(tmp);
 	return (size);

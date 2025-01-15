@@ -9,7 +9,9 @@ SRC = b_format_handler.c \
 		ft_util2_bonus.c \
 		ft_util4_bonus.c \
 		ft_util6_bonus.c \
-		ft_zero_paddding_bonus.c
+		ft_zero_paddding_bonus.c \
+		ft_util7_bonus.c \
+		ft_util8_bonus.c
 
 NAME = libftprintf.a
 OBJ = $(SRC:.c=.o)

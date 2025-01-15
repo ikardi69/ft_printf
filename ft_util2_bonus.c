@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 20:22:09 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/14 17:14:10 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:41:23 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	ft_hash(va_list args, const char *s)
 {
-	int	size;
-	int	i;
+	int				size;
+	int				i;
+	unsigned int	tmp;
 
 	size = 0;
 	i = 0;
@@ -24,11 +25,16 @@ int	ft_hash(va_list args, const char *s)
 	if (s[i] != 'x' && s[i] != 'X')
 		size += format_handler(args, s[i]);
 	if (s[i] == 'x')
-		size += (ft_putstr("0x")
-				+ ft_putnbr_hex_low(va_arg(args, unsigned int)));
+	{
+		tmp = va_arg(args, unsigned int);
+		if (tmp == 0)
+			size += ft_putnbr_hex_low(tmp);
+		else
+			size += (ft_putstr("0x")
+					+ ft_putnbr_hex_low(tmp));
+	}
 	else if (s[i] == 'X')
-		size += (ft_putstr("0X")
-				+ ft_putnbr_hex_up(va_arg(args, unsigned int)));
+		size += ft_hash_helper(va_arg(args, unsigned int));
 	return (size);
 }
 
