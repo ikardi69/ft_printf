@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 00:56:20 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/01/15 18:40:42 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:02:45 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-#include <stdio.h>
 
 # define LL_MAX 9223372036854775807LL
 
