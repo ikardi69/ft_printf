@@ -1,5 +1,8 @@
 <h1 align="center">🖨️ ft_printf </h1>
 
+![Language](https://img.shields.io/badge/language-C-blue)
+![Version](https://img.shields.io/badge/version-16.3-orange)
+
 <p align="center">
   <h1>🧾 Description</h1>
 </p>
